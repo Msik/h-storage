@@ -34,3 +34,11 @@ func (order *Order) SetStatus(status Status) (bool, string) {
 func (order *Order) SetItems(items []Item) {
 	order.items = items
 }
+
+func (order *Order) GetSum() (sum int) {
+	for _, item := range order.items {
+		sum += item.price * item.count
+	}
+
+	return
+}
