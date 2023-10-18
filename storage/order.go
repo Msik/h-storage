@@ -17,19 +17,12 @@ func (s Status) isValid() bool {
 	return false
 }
 
-type Item struct {
-	id    int
-	name  string
-	price int
-	count int
-}
-
 type Order struct {
 	items  []Item
 	status Status
 }
 
-func (order *Order) setStatus(status Status) (bool, string) {
+func (order *Order) SetStatus(status Status) (bool, string) {
 	if status.isValid() {
 		return false, "the status is invalid"
 	}
@@ -38,6 +31,6 @@ func (order *Order) setStatus(status Status) (bool, string) {
 	return true, ""
 }
 
-func (order *Order) setItems(items []Item) {
+func (order *Order) SetItems(items []Item) {
 	order.items = items
 }

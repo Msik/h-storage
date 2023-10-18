@@ -9,7 +9,7 @@ type Storage struct {
 	users []User
 }
 
-func (storage *Storage) findUser(userId int) *User {
+func (storage *Storage) FindUser(userId int) *User {
 	for _, user := range storage.users {
 		if user.id == userId {
 			return &user
@@ -19,8 +19,8 @@ func (storage *Storage) findUser(userId int) *User {
 	return nil
 }
 
-func (storage *Storage) addUser(user User) (bool, string) {
-	if userStorage := storage.findUser(user.id); userStorage != nil {
+func (storage *Storage) AddUser(user User) (bool, string) {
+	if userStorage := storage.FindUser(user.id); userStorage != nil {
 		storage.users = append(storage.users, user)
 		return true, ""
 	}
