@@ -1,10 +1,5 @@
 package storage
 
-type User struct {
-	id    int
-	order Order
-}
-
 type Storage struct {
 	users []User
 }
