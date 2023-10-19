@@ -22,6 +22,10 @@ type Order struct {
 	status Status
 }
 
+func NewOrder() *Order {
+	return &Order{items: make([]Item, 0), status: New}
+}
+
 func (order *Order) SetStatus(status Status) (bool, string) {
 	if status.isValid() {
 		return false, "the status is invalid"
@@ -29,6 +33,10 @@ func (order *Order) SetStatus(status Status) (bool, string) {
 
 	order.status = status
 	return true, ""
+}
+
+func (order *Order) GetItems() []Item {
+	return order.items
 }
 
 func (order *Order) SetItems(items []Item) {

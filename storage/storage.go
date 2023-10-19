@@ -4,6 +4,10 @@ type Storage struct {
 	users []User
 }
 
+func NewStorage() *Storage {
+	return &Storage{users: make([]User, 0)}
+}
+
 func (storage *Storage) FindUser(userId int) *User {
 	for _, user := range storage.users {
 		if user.id == userId {
